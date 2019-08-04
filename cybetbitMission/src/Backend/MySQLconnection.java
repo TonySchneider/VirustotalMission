@@ -10,6 +10,9 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class MySQLconnection {
+	private static final String MySQLjdbc = "jdbc:mysql://localhost:3306/cbmission";
+	private static final String MySQLuser = "root"; //Usually it's root
+	private static final String MySQLpass = "1234";
 	private static DefaultTableModel model = null;
 	private static Connection myConn = null;
 	private static Statement myStmt = null;
@@ -43,7 +46,7 @@ public class MySQLconnection {
 		    }
 		};
 		try{
-			myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cbmission","root","1234");
+			myConn = DriverManager.getConnection(MySQLjdbc,MySQLuser,MySQLpass);
 			myStmt = myConn.createStatement();
 			buildModel();
 		}catch(Exception e){
